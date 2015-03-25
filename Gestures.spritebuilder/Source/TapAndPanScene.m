@@ -77,11 +77,11 @@
         CCNode *node = [responder nodeAtPoint:touchLocation];
         if ([node isKindOfClass:CCButton.class] && [(CCButton *)node enabled]) {
             [(CCButton *)node triggerAction];
+        } else {
+            NSLog(@"Single tap - fired");
+            [_thrustLabel setString:@"Thrust: off"];
+            [_engineThrust setVisible:false];
         }
-        
-        NSLog(@"Single tap - fired");
-        [_thrustLabel setString:@"Thrust: off"];
-        [_engineThrust setVisible:false];
     }
 }
 -(void)handleDoubleTapWith:(UITapGestureRecognizer *)recognizer {
